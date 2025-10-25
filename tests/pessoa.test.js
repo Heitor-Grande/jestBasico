@@ -1,4 +1,4 @@
-const { retornarIdadePessoa, retornarListaDePessoas, carregarPessoa, isPessoa } = require("./pessoa")
+const { retornarIdadePessoa, retornarListaDePessoas, carregarPessoa, isPessoa } = require("../controllers/pessoa/pessoa.controller")
 
 let totalDeTestesNesteArquivo = 0
 

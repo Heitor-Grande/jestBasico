@@ -1,4 +1,4 @@
-const sum = require("./sum")
+const sum = require("../controllers/sum/sum.controller")
 
 const a = 5
 const b = 7

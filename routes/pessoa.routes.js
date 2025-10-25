@@ -1,4 +1,4 @@
-const { carregarPessoaHttp } = require("../controllers/pessoa/pessoa")
+const { carregarPessoaHttp } = require("../controllers/pessoa/pessoa.controller")
 
 const routerPessoa = require("express").Router()
 
