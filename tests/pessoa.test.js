@@ -1,4 +1,6 @@
 const { retornarIdadePessoa, retornarListaDePessoas, carregarPessoa, isPessoa } = require("../controllers/pessoa/pessoa.controller")
+const request = require("supertest")
+const app = require("../app")
 
 let totalDeTestesNesteArquivo = 0
 
@@ -72,5 +74,16 @@ describe("Testando modulo Pessoa", function () {
         const pessoa = "Heitor"
         //obs: toContain(item) compara se eu tenho meu item dentro do meu array
         expect(retornarListaDePessoas(listaDePessoas)).toContain(pessoa)
+    })
+})
+
+describe("Testando pessoa.routes.js", function () {
+
+    test("GET /pessoa/carregar/pessoa, deve retornar uma pessoa", async function () {
+
+        const resposta = await request(app).get("/pessoa/carregar/pessoa")
+        //obs: posso ter mais de um expect() nos meus test()
+        expect(resposta.statusCode).toBe(201)
+        expect(resposta.body.idade).toBe(21)
     })
 })

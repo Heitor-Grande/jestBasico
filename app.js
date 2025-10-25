@@ -1,5 +1,5 @@
 const express = require("express")
-const routerPessoa = require("./routes/pessoa.routes")
+const { routerPessoa, routerSum } = require("./routes")
 const app = express()
 
 app.use(express.json())
@@ -13,5 +13,6 @@ app.get("/", function (req, res) {
 })
 
 app.use("/pessoa", routerPessoa)
+app.use("/soma", routerSum)
 
 module.exports = app
