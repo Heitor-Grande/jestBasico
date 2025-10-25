@@ -1,5 +1,19 @@
 const { retornarIdadePessoa, retornarListaDePessoas, carregarPessoa, isPessoa } = require("./pessoa")
 
+let totalDeTestesNesteArquivo = 0
+
+// Before e After Each
+beforeEach(function () {
+    //roda sempre antes de CADA teste começar.
+    totalDeTestesNesteArquivo = totalDeTestesNesteArquivo + 1
+})
+
+afterEach(function () {
+    //roda sempre depois de CADA teste finalizado.
+    console.log(`Total de Testes neste arquivo: ` + totalDeTestesNesteArquivo)
+})
+
+
 //Matchers básicos
 describe("Testando modulo Pessoa", function () {
 
@@ -31,10 +45,10 @@ describe("Testando modulo Pessoa", function () {
     test("Conferindo se é pessoa", function () {
 
         const pessoa = {
-            isPessoa: false
+            isPessoa: true
         }
         //obs: toBeTruthy() espera que o resultado sempre seja true
-        expect(pessoa).toBeTruthy()
+        expect(isPessoa(pessoa)).toBeTruthy()
     })
 
     test("Conferindo Objeto na Lista(array)", function () {
