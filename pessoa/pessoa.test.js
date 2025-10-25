@@ -9,7 +9,7 @@ describe("Testando modulo Pessoa", function () {
             pessoa: "Heitor Grande",
             idade: 21
         }
-        //obs: o toBe() espera o mesmo tipo de valor 21 === 21 e não 21 === '21'
+        //obs: o toBe() espera o mesmo tipo de valor 21 === 21 e não 21 === "21"
         expect(retornarIdadePessoa(pessoa)).toBe(21)
     })
 
@@ -35,5 +35,28 @@ describe("Testando modulo Pessoa", function () {
         }
         //obs: toBeTruthy() espera que o resultado sempre seja true
         expect(pessoa).toBeTruthy()
+    })
+
+    test("Conferindo Objeto na Lista(array)", function () {
+
+        const listaDePessoas = [
+            { nome: "Heitor Grande", idade: 21 },
+            { nome: "Sara Cristina", idade: 19 },
+            { nome: "Alessandro Antunes", idade: 50 }
+        ]
+
+        const pessoa = { nome: "Heitor Grande", idade: 21 }
+        //obs: toContainEqual(item) compara se eu tenho meu objeto dentro do meu array
+        expect(retornarListaDePessoas(listaDePessoas)).toContainEqual(pessoa)
+    })
+
+
+    test("Conferindo item na Lista(array)", function () {
+
+        const listaDePessoas = ["Heitor", "Felipe", "Guilherme"]
+
+        const pessoa = "Heitor"
+        //obs: toContain(item) compara se eu tenho meu item dentro do meu array
+        expect(retornarListaDePessoas(listaDePessoas)).toContain(pessoa)
     })
 })
